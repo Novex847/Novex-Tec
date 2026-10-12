@@ -1,765 +1,299 @@
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07090d">
-  <meta name="description" content="NOVEX TEC — Smart Tech. Better Deals. Tech, Gadgets und digitale Dienstleistungen.">
-  <title>NOVEX TEC | Smart Tech. Better Deals.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Mono&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NOVEX TEC – Tech, Gadgets und digitale Dienstleistungen.">
+  <title>NOVEX TEC | Technology & Digital Services</title>
   <style>
     :root {
-      --black: #07090d;
-      --panel: #0e131c;
-      --panel2: #111a27;
-      --blue: #087bff;
-      --cyan: #12c8f4;
-      --silver: #e4e9f1;
-      --muted: #929cab;
-      --line: #29313f;
-      --font: "Manrope", Arial, sans-serif;
-      --mono: "DM Mono", monospace;
+      --bg: #080b12;
+      --panel: #111824;
+      --blue: #2388ff;
+      --silver: #cbd5e1;
+      --muted: #9ba9bc;
+      --line: #263448;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--black);
-      color: var(--silver);
-      font-family: var(--font);
-      -webkit-font-smoothing: antialiased;
+      background: var(--bg);
+      color: #f5f7fb;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
     }
-    a { color: inherit; }
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--cyan);
-      outline-offset: 4px;
-    }
-    .wrap { width: min(1160px, calc(100% - 40px)); margin: auto; }
-    .mono {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-    }
-    .blue { color: var(--cyan); }
-    .muted { color: var(--muted); }
-    .dot {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      margin-right: 8px;
-      background: var(--cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 12px #12c8f4;
-    }
-
-    .topbar {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-      background: #050609;
-      color: #aab4c4;
-    }
-    .topbar .wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, 90%); margin: auto; }
 
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(7,9,13,.93);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid #222b39;
+      background: rgba(8, 11, 18, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
     }
     nav {
-      min-height: 78px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: .07em;
-      text-decoration: none;
-      white-space: nowrap;
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: 2px;
     }
-    .brand-symbol {
-      width: 35px;
-      height: 35px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(140deg, #f7f9fd, #a8b4c6);
-      color: #080a0e;
-      font-size: 13px;
-      font-weight: 800;
-      clip-path: polygon(0 0,100% 62%,100% 100%,0 40%);
-    }
-    .brand small {
-      display: block;
-      margin-top: 3px;
-      color: var(--cyan);
-      font: 10px var(--mono);
-      letter-spacing: .45em;
-    }
-    .navlinks { display: flex; align-items: center; gap: 22px; }
-    .navlinks a {
-      color: #c3cbd7;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 700;
-      transition: color .2s;
-    }
-    .navlinks a:hover, .footerlinks a:hover { color: var(--cyan); }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 47px;
-      padding: 0 19px;
+    .logo span { color: var(--blue); }
+    .links { display: flex; align-items: center; gap: 24px; }
+    .links a:hover { color: var(--blue); }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 8px;
       background: var(--blue);
       color: white;
+      font-weight: 700;
       border: 1px solid var(--blue);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 800;
       transition: .2s;
-      cursor: pointer;
     }
-    .btn:hover {
-      background: #0067dc;
-      border-color: #0067dc;
+    .button:hover {
+      background: #0868db;
       transform: translateY(-2px);
     }
-    .btn.secondary {
+    .button.secondary {
       background: transparent;
-      color: var(--silver);
-      border-color: #465164;
-    }
-    .btn.secondary:hover { color: var(--cyan); border-color: var(--cyan); }
-    .menu {
-      display: none;
-      background: transparent;
-      color: var(--silver);
-      border: 1px solid var(--line);
-      padding: 8px 12px;
-      font-size: 21px;
+      border-color: #53657d;
     }
 
     .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 95px 0 85px;
+      padding: 105px 0 95px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, #12356b 0%, transparent 58%);
     }
-    .hero:before {
-      content: "";
-      position: absolute;
-      top: -180px;
-      right: -130px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, #0758ba25, transparent 68%);
-      pointer-events: none;
+    .eyebrow {
+      color: #69adff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .8rem;
+      font-weight: bold;
     }
-    .hero-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 55px;
-      align-items: center;
-    }
-    .eyebrow { color: var(--cyan); margin-bottom: 25px; }
     h1 {
-      margin: 0;
-      font-size: clamp(52px, 7.3vw, 94px);
-      line-height: .98;
-      letter-spacing: -.075em;
-      font-weight: 800;
+      font-size: clamp(2.7rem, 7vw, 5.3rem);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin: 20px 0;
     }
-    .hero-copy {
-      max-width: 550px;
-      margin: 27px 0;
-      color: #aab4c4;
-      font-size: 15px;
-      line-height: 1.9;
+    h1 span { color: var(--blue); }
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: var(--silver);
+      font-size: 1.1rem;
     }
-    .actions { display: flex; gap: 11px; flex-wrap: wrap; }
-    .micro { margin-top: 22px; color: #7f8999; }
-
-    .hero-art {
-      min-height: 415px;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      padding: 24px;
-      border: 1px solid #29384e;
-      background: linear-gradient(145deg, #101722, #07090d 70%);
-    }
-    .hero-art:before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background-image:
-        linear-gradient(#8ca7c20b 1px, transparent 1px),
-        linear-gradient(90deg, #8ca7c20b 1px, transparent 1px);
-      background-size: 27px 27px;
-    }
-    .art-top { display: flex; justify-content: space-between; color: #a5b1c1; }
-    .orbit {
-      position: absolute;
-      top: 80px;
-      left: 50%;
-      width: 235px;
-      height: 235px;
-      transform: translateX(-50%);
-      border: 1px solid #4c6b91;
-      border-radius: 50%;
-      box-shadow: 0 0 55px #087bff15;
-    }
-    .orbit:before, .orbit:after {
-      content: "";
-      position: absolute;
-      inset: 24px;
-      border: 1px solid #37516f;
-      border-radius: 50%;
-    }
-    .orbit:after { inset: 52px; border-color: #087bff80; }
-    .core {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 132px;
-      height: 132px;
-      display: grid;
-      place-items: center;
-      transform: translate(-50%,-35%) rotate(-7deg);
-      background: linear-gradient(145deg, #f8fafc, #aab6c7);
-      color: #080a0e;
-      font-size: 43px;
-      font-weight: 800;
-      letter-spacing: -.1em;
-      clip-path: polygon(0 0,100% 60%,100% 100%,0 40%);
-    }
-    .core:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 35%;
-      height: 100%;
-      background: linear-gradient(180deg, #16d2ff, #0066ff);
-      clip-path: polygon(100% 0,100% 100%,0 60%,0 30%);
-    }
-    .art-bottom {
-      position: absolute;
-      right: 24px;
-      bottom: 24px;
-      left: 24px;
+    .actions {
       display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 15px;
-    }
-    .art-bottom strong { display: block; font-size: 18px; }
-    .art-bottom span { color: #a6b0c0; font-size: 10px; line-height: 1.8; }
-
-    .ticker { background: #090c12; border-block: 1px solid var(--line); }
-    .ticker .wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
+      justify-content: center;
       flex-wrap: wrap;
-      padding: 21px 0;
-      color: #a2adbd;
-    }
-    .ticker b { color: var(--cyan); margin-right: 8px; }
-
-    section.section { padding: 90px 0; }
-    .section-head {
-      display: grid;
-      grid-template-columns: .55fr 1.45fr;
-      gap: 35px;
-      margin-bottom: 40px;
-    }
-    .index { color: var(--cyan); padding-top: 7px; }
-    h2 {
-      margin: 0;
-      font-size: clamp(36px, 5vw, 61px);
-      line-height: 1.04;
-      letter-spacing: -.07em;
-    }
-    .intro {
-      max-width: 680px;
-      margin: 19px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
+      gap: 12px;
     }
 
-    .cards {
+    section { padding: 75px 0; }
+    .section-title { text-align: center; margin-bottom: 38px; }
+    .section-title h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: 0 0 10px; }
+    .section-title p { color: var(--muted); margin: 0; }
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
     .card {
-      min-height: 235px;
-      display: flex;
-      flex-direction: column;
       padding: 25px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      transition: background .2s;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
     }
-    .card:hover { background: var(--panel); }
-    .card-top { display: flex; justify-content: space-between; color: #8995a7; }
-    .card-icon {
-      width: 39px;
-      height: 39px;
-      display: grid;
-      place-items: center;
-      color: var(--cyan);
-      background: #0b1523;
-      border: 1px solid #34465f;
-      font-size: 17px;
-    }
-    .card h3 { margin: 25px 0 9px; font-size: 19px; letter-spacing: -.04em; }
-    .card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
-    .card a {
-      margin-top: auto;
-      padding-top: 20px;
-      color: var(--cyan);
-      font-size: 12px;
-      font-weight: 800;
-      text-decoration: none;
-    }
+    .card:hover { border-color: var(--blue); }
+    .symbol { font-size: 1.8rem; }
+    .card h3 { margin: 12px 0 8px; }
+    .card p { color: var(--muted); margin-bottom: 0; }
 
-    .dark-section {
-      background: #0b0f16;
-      border-block: 1px solid #1c2533;
-    }
-    .deal-panel {
-      margin-top: 25px;
-      padding: 23px;
-      border: 1px solid #24466f;
-      background: linear-gradient(120deg, #0b1a2e, #0b1018);
-    }
-    .deal-panel strong { display: block; margin: 9px 0; }
-    .deal-panel p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr .85fr;
-      gap: 60px;
-    }
-    .principles { margin-top: 28px; border-top: 1px solid var(--line); }
-    .principle {
-      display: grid;
-      grid-template-columns: 38px 1fr;
-      gap: 14px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .principle .num { color: var(--cyan); }
-    .principle h3 { margin: 0 0 6px; font-size: 15px; }
-    .principle p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
-    .manifesto {
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      padding: 35px;
-      border: 1px solid #29384c;
-      background: linear-gradient(145deg, #101722, #080a0e);
-    }
-    .manifesto blockquote {
-      position: relative;
-      z-index: 1;
-      margin: 35px 0;
-      font-size: clamp(30px, 3.7vw, 45px);
-      line-height: 1.12;
-      letter-spacing: -.07em;
-    }
-    .manifesto:after {
-      content: "N/";
-      position: absolute;
-      right: -5px;
-      bottom: -60px;
-      color: #ffffff05;
-      font-size: 210px;
-      font-weight: 800;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
+    .about {
+      background: #0c111b;
       border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
-    .step { padding: 24px 24px 0 0; }
-    .step h3 { margin: 17px 0 8px; font-size: 17px; }
-    .step p { color: var(--muted); font-size: 12px; line-height: 1.85; }
+    .about-inner {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+    }
+    .about-inner p { color: var(--silver); }
 
-    .contact {
-      padding: 85px 0;
-      background: linear-gradient(120deg, #071a31, #07090d 75%);
-      border-block: 1px solid #1d3b5e;
+    .contact-box {
+      max-width: 720px;
+      margin: auto;
+      padding: 35px;
+      text-align: center;
+      background: linear-gradient(135deg, #111824, #10264a);
+      border: 1px solid #29476f;
+      border-radius: 18px;
     }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr .8fr;
-      gap: 55px;
-      align-items: end;
-    }
-    .contact-copy { color: #aab5c6; line-height: 1.9; font-size: 14px; }
-    .contact-box { padding: 25px; border: 1px solid #29415f; background: #0a1019; }
+    .contact-box p { color: var(--silver); }
     .email {
-      display: block;
-      margin: 16px 0;
-      color: var(--silver);
-      font-size: clamp(17px,2vw,23px);
-      font-weight: 800;
+      display: inline-block;
+      margin: 10px 0 22px;
+      color: #81bbff;
       overflow-wrap: anywhere;
-      text-decoration: none;
     }
-    .email:hover { color: var(--cyan); }
-    .contact-box p { color: var(--muted); font-size: 12px; line-height: 1.8; }
 
-    footer { padding: 30px 0; background: #050609; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .footerlinks { display: flex; gap: 18px; flex-wrap: wrap; }
-    .footerlinks a { color: #a7b1c0; font-size: 11px; text-decoration: none; }
-    .copyright {
-      width: 100%;
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      align-items: center;
+      gap: 15px;
       flex-wrap: wrap;
-      padding-top: 18px;
-      border-top: 1px solid #242a35;
-      color: #798495;
     }
 
-    @media(max-width:900px) {
-      .hero-grid, .contact-grid, .two-col { grid-template-columns: 1fr; }
-      .hero-grid { gap: 40px; }
-      .section-head { grid-template-columns: 1fr; gap: 12px; }
-      .cards { grid-template-columns: repeat(2,1fr); }
-      .navlinks { gap: 12px; }
-      .navlinks a { font-size: 11px; }
-    }
-    @media(max-width:650px) {
-      .wrap { width: calc(100% - 32px); }
-      nav { min-height: 68px; }
-      .menu { display: block; }
-      .navlinks {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 12px 20px 20px;
-        background: #080b11;
-        border-bottom: 1px solid var(--line);
-      }
-      .navlinks.open { display: flex; flex-direction: column; align-items: stretch; }
-      .navlinks a { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
-      nav > .btn { display: none; }
-      .hero { padding: 65px 0; }
-      h1 { font-size: clamp(49px,14vw,75px); }
-      .hero-art { min-height: 335px; }
-      .orbit { width: 200px; height: 200px; top: 72px; }
-      .core { width: 115px; height: 115px; }
-      .ticker .wrap { justify-content: flex-start; }
-      .ticker span { width: calc(50% - 10px); font-size: 9px; }
-      section.section { padding: 70px 0; }
-      .cards, .steps { grid-template-columns: 1fr; }
-      .card { min-height: 210px; }
-      .step { padding: 20px 0; border-bottom: 1px solid var(--line); }
-      .manifesto { min-height: 275px; padding: 28px; }
-      .actions .btn { width: 100%; }
-      .copyright { font-size: 9px; }
-    }
-    @media(prefers-reduced-motion:reduce) {
-      *,*::before,*::after { scroll-behavior: auto !important; transition: none !important; }
+    @media (max-width: 700px) {
+      nav { padding: 16px 0; align-items: flex-start; }
+      .links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+      .links a { font-size: .85rem; }
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 75px 0; }
+      section { padding: 55px 0; }
+      .contact-box { padding: 25px 18px; }
     }
   </style>
 </head>
-
 <body>
-  <div class="topbar">
-    <div class="wrap">
-      <span class="mono">Smart Tech. Better Deals.</span>
-      <span class="mono"><i class="dot"></i>Tech · Digital · Gadgets</span>
-    </div>
-  </div>
-
   <header>
-    <nav class="wrap" aria-label="Hauptnavigation">
-      <a class="brand" href="#start" aria-label="NOVEX TEC Startseite">
-        <span class="brand-symbol">N/</span>
-        <span>NOVEX<small>TECH</small></span>
-      </a>
-      <button class="menu" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">☰</button>
-      <div class="navlinks" id="navlinks">
-        <a href="#start">Start</a>
-        <a href="#shop">Tech &amp; Gadgets</a>
-        <a href="#services">Dienstleistungen</a>
+    <nav class="container">
+      <a class="logo" href="#home">NOVEX <span>TEC</span></a>
+      <div class="links">
+        <a href="#services">Services</a>
         <a href="#about">Über uns</a>
         <a href="#contact">Kontakt</a>
       </div>
-      <a class="btn" href="#contact">Kontakt ↗</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="start">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow mono"><i class="dot"></i>Technologie mit Mehrwert</div>
-          <h1>Smart tech.<br><span class="blue">Better deals.</span></h1>
-          <p class="hero-copy">
-            Willkommen bei NOVEX TEC. Wir verbinden praktische Technik und spannende Gadgets mit digitalen Dienstleistungen, die Ideen in klare, professionelle Ergebnisse verwandeln.
-          </p>
-          <div class="actions">
-            <a class="btn" href="#shop">Tech entdecken ↗</a>
-            <a class="btn secondary" href="#services">Unsere Services ↓</a>
-          </div>
-          <div class="micro mono">TECH &amp; GADGETS · DIGITALE SERVICES · DIREKTER KONTAKT</div>
-        </div>
-
-        <div class="hero-art" role="img" aria-label="Abstraktes silber-blaues NOVEX TEC Symbol">
-          <div class="art-top mono"><span>NOVEX TEC / DIGITAL</span><span>NT—001</span></div>
-          <div class="orbit"></div>
-          <div class="core">N/</div>
-          <div class="art-bottom">
-            <div><strong>Technik mit Mehrwert.</strong><span>Praktische Ideen. Klare Lösungen.</span></div>
-            <span class="mono">SMART<br>× SIMPLE</span>
-          </div>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">Technology · Innovation · Digital</div>
+        <h1>Think Smart.<br><span>Think NOVEX.</span></h1>
+        <p>
+          Deine Anlaufstelle für Tech & Gadgets, interessante Deals
+          und digitale Dienstleistungen. Einfach, modern und zuverlässig.
+        </p>
+        <div class="actions">
+          <a class="button" href="#services">Unsere Services entdecken</a>
+          <a class="button secondary" href="#contact">Kontakt aufnehmen</a>
         </div>
       </div>
     </section>
 
-    <div class="ticker">
-      <div class="wrap mono">
-        <span><b>01</b>Tech &amp; Gadgets</span>
-        <span><b>02</b>Smartere Deals</span>
-        <span><b>03</b>Digitale Services</span>
-        <span><b>04</b>Klare Ergebnisse</span>
-      </div>
-    </div>
-
-    <section class="section" id="shop">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="index mono">01 / Tech &amp; Gadgets</div>
-          <div>
-            <h2>Nützliche Technik.<br><span class="blue">Besser ausgewählt.</span></h2>
-            <p class="intro">
-              Entdecke praktische Gadgets und Technik-Zubehör für Alltag, Arbeitsplatz und unterwegs. Unser Angebot wächst Schritt für Schritt – mit Fokus auf Nutzen, Preis und klare Informationen.
-            </p>
-          </div>
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Was wir anbieten</h2>
+          <p>Digitale Lösungen und Technik an einem Ort.</p>
         </div>
 
-        <div class="cards">
+        <div class="grid">
           <article class="card">
-            <div class="card-top"><span class="card-icon">⌘</span><span class="mono">01 / Arbeitsplatz</span></div>
-            <h3>Desk &amp; Computer</h3>
-            <p>Zubehör und clevere Ergänzungen für einen aufgeräumten, funktionalen Arbeitsplatz.</p>
-            <a href="mailto:info.novextec@gmail.com?subject=Anfrage%20zu%20Desk%20und%20Computer">Artikel anfragen ↗</a>
+            <div class="symbol">⌘</div>
+            <h3>Tech & Gadgets</h3>
+            <p>Entdecke interessante Technik, praktische Gadgets
+              und ausgewählte Produkte für deinen Alltag.</p>
           </article>
-          <article class="card">
-            <div class="card-top"><span class="card-icon">◈</span><span class="mono">02 / Alltag</span></div>
-            <h3>Alltags-Gadgets</h3>
-            <p>Kleine technische Helfer, die nützlich sind, gut funktionieren und einfach zu verwenden sind.</p>
-            <a href="mailto:info.novextec@gmail.com?subject=Anfrage%20zu%20Gadgets">Gadgets anfragen ↗</a>
-          </article>
-          <article class="card">
-            <div class="card-top"><span class="card-icon">⌁</span><span class="mono">03 / Zubehör</span></div>
-            <h3>Elektronik-Zubehör</h3>
-            <p>Praktische Ergänzungen für Geräte, Verbindung und Organisation.</p>
-            <a href="mailto:info.novextec@gmail.com?subject=Anfrage%20zu%20Elektronik-Zubeh%C3%B6r">Zubehör anfragen ↗</a>
-          </article>
-        </div>
 
-        <div class="deal-panel">
-          <span class="mono blue">NOVEX DEAL NOTE</span>
-          <strong>Gute Deals statt leere Versprechen.</strong>
-          <p>Konkrete Produkte und Angebote werden hier ergänzt, sobald Preise, Verfügbarkeit und Produktdetails geprüft sind. Bis dahin kannst du uns nach einem bestimmten Artikel fragen.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-section" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="index mono">02 / Digitale Dienstleistungen</div>
-          <div>
-            <h2>Deine Idee.<br><span class="blue">Klar umgesetzt.</span></h2>
-            <p class="intro">
-              Wir helfen dabei, Informationen zu strukturieren und professionell aufzubereiten – mit sauberem Layout, verständlicher Gliederung und einem Ergebnis, das zum Zweck passt.
-            </p>
-          </div>
-        </div>
-
-        <div class="cards">
           <article class="card">
-            <div class="card-top"><span class="card-icon">▤</span><span class="mono">01 / Reports</span></div>
-            <h3>Reports &amp; PDFs</h3>
-            <p>Übersichtliche Dokumente, die Inhalte sinnvoll ordnen und angenehm lesbar machen.</p>
-            <a href="mailto:info.novextec@gmail.com?subject=Anfrage%20zu%20Reports%20und%20PDFs">Projekt anfragen ↗</a>
+            <div class="symbol">▤</div>
+            <h3>Reports & PDFs</h3>
+            <p>Übersichtlich aufbereitete Reports und digitale
+              Dokumente für deine Projekte.</p>
           </article>
+
           <article class="card">
-            <div class="card-top"><span class="card-icon">▥</span><span class="mono">02 / Präsentationen</span></div>
+            <div class="symbol">▣</div>
             <h3>Präsentationen</h3>
-            <p>Gut strukturierte Folien mit konsistentem Design und einer klaren Botschaft.</p>
-            <a href="mailto:info.novextec@gmail.com?subject=Anfrage%20zu%20Pr%C3%A4sentationen">Projekt anfragen ↗</a>
+            <p>Klare, moderne Präsentationen und strukturierte
+              Inhalte für unterschiedliche Anforderungen.</p>
           </article>
+
           <article class="card">
-            <div class="card-top"><span class="card-icon">⌘</span><span class="mono">03 / Dokumente</span></div>
+            <div class="symbol">✦</div>
             <h3>Digitale Dokumente</h3>
-            <p>Hilfreiche Vorlagen, sauber gestaltete Inhalte und eine nachvollziehbare Struktur.</p>
-            <a href="mailto:info.novextec@gmail.com?subject=Anfrage%20zu%20digitalen%20Dokumenten">Projekt anfragen ↗</a>
+            <p>Professionell formatierte Unterlagen, die Informationen
+              verständlich und übersichtlich vermitteln.</p>
+          </article>
+
+          <article class="card">
+            <div class="symbol">↗</div>
+            <h3>Gute Deals</h3>
+            <p>Spannende Angebote und interessante Fundstücke
+              aus der Welt der Technik.</p>
+          </article>
+
+          <article class="card">
+            <div class="symbol">⚙</div>
+            <h3>Individuelle Anfragen</h3>
+            <p>Du hast eine Idee? Schreib uns und wir besprechen,
+              welche digitale Lösung zu deinem Vorhaben passt.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
-      <div class="wrap two-col">
-        <div>
-          <div class="index mono">03 / Warum NOVEX TEC?</div>
-          <h2 style="margin-top:18px">Technik soll helfen. Nicht komplizierter machen.</h2>
-          <p class="intro">
-            NOVEX TEC verbindet Neugier für Technologie mit einem pragmatischen Blick auf digitale Aufgaben. Unser Anspruch: verständliche Kommunikation, sinnvolle Lösungen und sorgfältige Details.
-          </p>
-          <div class="principles">
-            <div class="principle">
-              <span class="mono num">01</span>
-              <div><h3>Praktischer Nutzen</h3><p>Produkte und Leistungen sollen ein konkretes Problem lösen oder einen echten Mehrwert bieten.</p></div>
-            </div>
-            <div class="principle">
-              <span class="mono num">02</span>
-              <div><h3>Klare Kommunikation</h3><p>Leistungsumfang, Kosten und nächste Schritte sollen verständlich bleiben.</p></div>
-            </div>
-            <div class="principle">
-              <span class="mono num">03</span>
-              <div><h3>Sorgfältige Umsetzung</h3><p>Wir achten auf Struktur, Lesbarkeit und die Details, die ein Ergebnis besser machen.</p></div>
-            </div>
-          </div>
-        </div>
-
-        <aside class="manifesto">
-          <span class="mono">NOVEX TEC / UNSER LEITGEDANKE</span>
-          <blockquote>Smart tech.<br><span class="blue">Better deals.</span><br>Bessere Lösungen.</blockquote>
-          <span class="mono">TECH · KLARHEIT · MEHRWERT</span>
-        </aside>
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="eyebrow">About NOVEX TEC</div>
+        <h2>Technologie. Klar gedacht.</h2>
+        <p>
+          NOVEX TEC verbindet die Welt der Technik mit digitalen
+          Dienstleistungen. Unser Ziel ist es, Ideen übersichtlich
+          umzusetzen und Technik verständlicher und zugänglicher zu machen.
+        </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="index mono">04 / Zusammenarbeit</div>
-          <div>
-            <h2>Einfach starten.<br>Klar weitergehen.</h2>
-            <p class="intro">Du musst nicht alle Details kennen. Erzähl uns, was du suchst oder umsetzen möchtest, und wir klären gemeinsam die nächsten Schritte.</p>
-          </div>
-        </div>
-        <div class="steps">
-          <article class="step">
-            <span class="mono blue">STEP 01</span>
-            <h3>Kontakt aufnehmen</h3>
-            <p>Schicke uns deine Idee, eine Produktanfrage oder eine kurze Beschreibung deines Projekts.</p>
-          </article>
-          <article class="step">
-            <span class="mono blue">STEP 02</span>
-            <h3>Details klären</h3>
-            <p>Wir besprechen Anforderungen, Möglichkeiten, Umfang und – falls relevant – die Kosten.</p>
-          </article>
-          <article class="step">
-            <span class="mono blue">STEP 03</span>
-            <h3>Nächsten Schritt planen</h3>
-            <p>Wenn alles passt, stimmen wir das weitere Vorgehen und die Erwartungen ab.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrap contact-grid">
-        <div>
-          <div class="index mono">05 / Kontakt</div>
-          <h2>Was hast du im Kopf?</h2>
-          <p class="contact-copy">
-            Du suchst ein bestimmtes Gadget, möchtest dich nach einem Deal erkundigen oder brauchst Unterstützung bei einem digitalen Projekt? Schreib uns – wir freuen uns, von dir zu hören.
-          </p>
-        </div>
+    <section id="contact">
+      <div class="container">
         <div class="contact-box">
-          <span class="mono blue">DIREKT KONTAKTIEREN</span>
-          <a class="email" href="mailto:info.novextec@gmail.com?subject=Anfrage%20an%20NOVEX%20TEC">info.novextec@gmail.com</a>
-          <p>Beschreibe kurz dein Anliegen. Wir besprechen dann die passenden Möglichkeiten und nächsten Schritte.</p>
-          <a class="btn" href="mailto:info.novextec@gmail.com?subject=Anfrage%20an%20NOVEX%20TEC">E-Mail schreiben ↗</a>
+          <div class="eyebrow">Let's connect</div>
+          <h2>Bereit für dein nächstes Projekt?</h2>
+          <p>Fragen, Ideen oder eine Anfrage? Wir freuen uns auf deine Nachricht.</p>
+          <a class="email" href="mailto:info.novextec@gmail.com">
+            info.novextec@gmail.com
+          </a>
+          <br>
+          <a class="button" href="mailto:info.novextec@gmail.com?subject=Anfrage%20an%20NOVEX%20TEC">
+            E-Mail schreiben
+          </a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-inner">
-      <a class="brand" href="#start">
-        <span class="brand-symbol">N/</span>
-        <span>NOVEX<small>TECH</small></span>
-      </a>
-      <div class="footerlinks">
-        <a href="#shop">Tech &amp; Gadgets</a>
-        <a href="#services">Dienstleistungen</a>
-        <a href="#about">Über uns</a>
-        <a href="#contact">Kontakt</a>
-        <a href="#start">Nach oben ↑</a>
-      </div>
-      <div class="copyright mono">
-        <span>© <span id="year"></span> NOVEX TEC</span>
-        <span>SMART TECH. BETTER DEALS.</span>
-      </div>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> NOVEX TEC</span>
+      <span>Technology & Digital Services</span>
     </div>
   </footer>
-
-  <script>
-    const menuButton = document.querySelector(".menu");
-    const navLinks = document.querySelector(".navlinks");
-
-    menuButton.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", String(open));
-      menuButton.setAttribute("aria-label", open ? "Menü schliessen" : "Menü öffnen");
-      menuButton.textContent = open ? "×" : "☰";
-    });
-
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Menü öffnen");
-        menuButton.textContent = "☰";
-      });
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
